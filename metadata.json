@@ -1,0 +1,9 @@
+{
+    "dates": ["April_8", "April_9", "April_10", "April_11"],
+    "columns": ["ADC","Feature 2","Resistance/ohm","Temp","RH","Pressure"],
+    "window_sizes": ["10", "12", "20", "30"],
+    "valid_per": ["0.1"],
+    "test_per": ["0.1"],
+    "threshold": ["0.5"],
+    "seeds": ["12345", "2210", "9999", "58361", "789789", "1111111"]
+}
