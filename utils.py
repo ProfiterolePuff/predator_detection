@@ -1,6 +1,7 @@
 import datetime
 import json
 import logging
+import os
 from os.path import exists
 
 import numpy as np
@@ -45,3 +46,36 @@ def check_file_existence(path, raise_error = False):
             print("File " + str(path) + " has already existed!")
     return bool_result
 
+def create_dir(path):
+    """Create directory if the input path is not found."""
+    if not os.path.exists(path):
+        logger.info(f'Creating directory: {path}')
+        os.makedirs(path)
+
+def get_csv_line_from_list(line_list):
+    """
+    Create a comma seperated line without new line character with given list
+    """
+    line_str = ""
+    for value in line_list:
+        line_str += str(value)
+        line_str += ","
+    return line_str
+
+def create_empty_result_csv_file(path_save, first_line_list):
+
+    if not check_file_existence(path_save):
+
+        line = get_csv_line_from_list(first_line_list)
+
+        with open(path_save, "a") as f:
+            f.write(line)
+            f.write("\n")
+    
+def append_result_to_csv_file(path_save, line_list):
+
+    line = get_csv_line_from_list(line_list)
+
+    with open(path_save, "a") as f:
+            f.write(line)
+            f.write("\n")
